@@ -1,9 +1,9 @@
 <div data-hook="admin_variant_form_fields" class="label-block left six columns alpha">
   <div data-hook="variants">
-    <% @product.option_types.each do |option_type| %>
+    <% @variant.option_values.each do |option_value| %>
       <div class="field" data-hook="presentation">
-        <%= label :new_variant, option_type.presentation %>
-        <%= f.collection_select 'option_value_ids', option_type.option_values, :id, :presentation,
+        <%= label :new_variant, option_value.option_type.presentation %>
+        <%= f.collection_select 'option_value_ids', option_value.option_type.option_values, :id, :presentation,
           { :prompt => true }, { :name => 'variant[option_value_ids][]', :class => 'select2 fullwidth' } %>
       </div>
     <% end %>
